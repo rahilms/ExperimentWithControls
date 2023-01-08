@@ -6,16 +6,49 @@
         xmlns:local="clr-namespace:ExperimentWithControls"
         mc:Ignorable="d"
         Title="Experiment With Controls" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height=".5*"/>
-        </Grid.RowDefinitions>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="168*"/>
+			<RowDefinition Height="167*"/>
+			<RowDefinition Height="40*"/>
+			<RowDefinition Height="44*"/>
+		</Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-    </Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Label Content="Enter the Number" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+		<TextBlock x:Name="number" Grid.Column="1" TextWrapping="Wrap" Text="#" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="191,68,190,68"/>
+		<TextBox x:Name="numberTextBox" HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" FontSize="18" TextChanged="numberTextBox_TextChanged" PreviewTextInput="numberTextBox_PreviewTextInput"/>
+		<RadioButton Content="1" HorizontalAlignment="Left" Margin="200,44,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+		<RadioButton Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="230,44,0,0" Checked="RadioButton_Checked"/>
+		<RadioButton Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="230,59,0,0" Checked="RadioButton_Checked"/>
+		<RadioButton Content="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,59,0,0" Checked="RadioButton_Checked"/>
+		<RadioButton Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="260,44,0,0" Checked="RadioButton_Checked"/>
+		<ListBox x:Name="myListBox" HorizontalAlignment="Left" Height="100" Margin="10,10,10,10" Grid.Row="1" VerticalAlignment="Top" Width="100" SelectionChanged="myListBox_SelectionChanged">
+			<ListBoxItem Content="1"/>
+			<ListBoxItem Content="2"/>
+			<ListBoxItem Content="3"/>
+			<ListBoxItem Content="4"/>
+			<ListBoxItem Content="5"/>
+		</ListBox>
+		<ComboBox x:Name="readOnlyComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="readOnlyComboBox_SelectionChanged">
+			<ListBoxItem Content="1"/>
+			<ListBoxItem Content="2"/>
+			<ListBoxItem Content="3"/>
+			<ListBoxItem Content="4"/>
+			<ListBoxItem Content="5"/>
+		</ComboBox>
+		<ComboBox x:Name="editableComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="266,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" IsEditable="True" PreviewTextInput="numberTextBox_PreviewTextInput" TextBoxBase.TextChanged="editableComboBox_SelectionChanged">
+			<ListBoxItem Content="1"/>
+			<ListBoxItem Content="2"/>
+			<ListBoxItem Content="3"/>
+			<ListBoxItem Content="4"/>
+			<ListBoxItem Content="5"/>
+		</ComboBox>
+		<Slider x:Name="smallSlider" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="-15.417,0.278" AutoToolTipPlacement="TopLeft" Maximum="5" Minimum="1" ValueChanged="smallSlider_ValueChanged"/>
+		<Slider x:Name="bigSlider" Margin="112,26,284,18" Grid.Row="3" VerticalAlignment="Center" Width="0" Height="0" AutoToolTipPlacement="TopLeft" Maximum="9999999999" Minimum="1111111111" Value="7183876962" Grid.Column="1" ValueChanged="bigSlider_ValueChanged"/>
+
+	</Grid>
 </Window>
